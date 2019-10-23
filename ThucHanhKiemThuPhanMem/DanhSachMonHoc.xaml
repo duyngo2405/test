@@ -1,0 +1,74 @@
+﻿<Window x:Class="ThucHanhKiemThuPhanMem.DanhSachMonHoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ThucHanhKiemThuPhanMem"
+        WindowStartupLocation="CenterScreen"
+        mc:Ignorable="d"
+        
+        Title="DanhSachMonHoc" Height="438" Width="800">
+    <Grid Margin="10px">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="310*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="40*" />
+        </Grid.RowDefinitions>
+
+        <DataGrid  Grid.Row="0" Grid.Column="0"                 
+                   Name="dataGridDanhSachMonHoc" 
+                   HorizontalAlignment="Stretch" 
+                  Height="auto"  
+                  VerticalAlignment="Stretch" 
+                  Width="auto" 
+                  AutoGenerateColumns="False" 
+                  ColumnWidth="*" 
+                   CanUserAddRows="False"
+                  EnableRowVirtualization="false" 
+                  EnableColumnVirtualization="false"
+                   Padding="5px"
+                   SelectionUnit="FullRow"
+                   IsReadOnly="True"
+                   SelectionChanged="DataGridDanhSachMonHoc_SelectionChanged" Margin="0,0,10,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã môn học" FontFamily="Times New Roman" Binding="{Binding MaMonHoc}" />
+                <DataGridTextColumn Header="Tên môn học" FontFamily="Times New Roman" Binding="{Binding TenMon}"/>
+                <DataGridTextColumn Header="Mã ngành" FontFamily="Times New Roman" Binding="{Binding MaNganh}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <DataGrid Grid.Row="0" Grid.Column="1" Name="dataGridDanhSachLop" HorizontalAlignment="Stretch" 
+                  Height="auto"  
+                  VerticalAlignment="Stretch" 
+                  Width="auto" 
+                  AutoGenerateColumns="False" 
+                  ColumnWidth="*" 
+                  IsReadOnly="True"
+                  CanUserAddRows="False"
+                  EnableRowVirtualization="false" 
+                  EnableColumnVirtualization="false"
+                  Padding="5px" Margin="10,0,0,10">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã lớp" FontFamily="Times New Roman" Binding="{Binding MaLop}"/>
+                <DataGridTextColumn Header="Tên lớp" FontFamily="Times New Roman" Binding="{Binding TenLop}"/>
+                <DataGridTextColumn Header="Mã giảng viên" FontFamily="Times New Roman" Binding="{Binding MaGiangVien}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0"  Width="100" Height="30" Content="Tạo lớp" FontSize="16" FontFamily="Times New Roman Bold"  Background="LightGreen" BorderBrush="Green" Name="bntPhanLop" Click="BntPhanLop_Click"/>
+            <Button Grid.Column="1" Width="100" Height="30" Content="Cập nhật lớp" FontSize="16" FontFamily="Times New Roman Bold" Background="LightYellow" BorderBrush="Yellow" Name="bntCapNhatLop" Click="bntCapNhatLop_Click" Grid.ColumnSpan="2" Margin="143,4"/>
+            <Button Grid.Column="3" Width="100" Height="30" Content="Hủy lớp" FontSize="16" FontFamily="Times New Roman Bold" Background="OrangeRed" Name="bntHuyLop" BorderBrush="Red" Click="bntHuyLop_Click" Margin="39,4,54,4"/>
+
+        </Grid>
+        <Button Grid.Row="2" Grid.ColumnSpan="2" HorizontalContentAlignment="Center" Width="100" Height="30" FontSize="16" FontFamily="Times New Roman Bold" Content="Trở về" Name="bntBack" Click="bntBack_Click" />
+    </Grid>
+</Window>
